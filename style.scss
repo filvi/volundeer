@@ -1,0 +1,77 @@
+$accent: #FF843F;
+$text : #656565;
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif !important;
+}
+
+body {
+    display: flex;
+}
+
+main {
+    width: 55vw;
+
+    margin: 61px 100px;
+
+    h1 {
+        font-weight: bold;
+        font-size: 140px;
+        line-height: 100%;
+    }
+
+    p {
+        font-size: 35px;
+        color: $text;
+        line-height: 130%;
+    }
+
+}
+
+aside {
+    width: 45vw;
+}
+
+aside {
+    background: url('hero.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+
+#cta,
+#cta-btn {
+    padding: .5em 1.5em;
+    margin: 0;
+    font-size: 1.5rem;
+    font-family: 'Poppins', sans-serif !important;
+}
+
+
+#cta {
+    border-color: rgba(101, 101, 101, .5) !important;
+    outline-color: transparent !important;
+
+}
+
+#cta-btn {
+    outline-color: transparent !important;
+    border-color: transparent;
+    background-color: $text !important;
+    color: white;
+}
+
+form {
+    display: flex;
+    margin-top: 60px;
+}
+
+.accent {
+    color: $accent;
+
+}
