@@ -1,4 +1,5 @@
 $accent: #FF843F;
+$accent-dark: #DF6F2F;
 $text : #656565;
 
 body,
@@ -10,68 +11,172 @@ html {
 }
 
 body {
-    display: flex;
+    display: grid;
+    max-width: 100vw;
+    overflow-x: hidden;
+    grid-template-areas: 'aside'
+        'main';
+
+
+    @media screen and (min-width: 1200px) {
+        grid-template-areas: 'main aside';
+    }
+
+}
+
+
+#logo {
+    position: absolute;
+    top: 61px;
+    left: 100px;
 }
 
 main {
-    width: 55vw;
+    margin: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: fit-content;
 
-    margin: 61px 100px;
+    grid-area: main;
+
+    @media screen and (min-width: 600px) {
+        margin: 40px;
+        width: calc(100vw - 80px) !important;
+    }
+
+    @media screen and (min-width: 900px) {
+        margin: 50px;
+        width: calc(100vw - 100px) !important;
+    }
+
+    @media screen and (min-width: 1200px) {
+        width: calc(55vw - 200px) !important;
+        margin: 100px 100px 60px 100px;
+    }
 
     h1 {
         font-weight: bold;
-        font-size: 140px;
-        line-height: 100%;
+        font-size: clamp(40px, 4.5vw, 140px);
+        line-height: 92%;
+        margin-bottom: 0;
     }
 
     p {
-        font-size: 35px;
+        font-size: clamp(16px, 1vw, 35px);
         color: $text;
         line-height: 130%;
     }
 
 }
 
-aside {
-    width: 45vw;
+#volun {
+    fill: $text !important;
+}
+
+#dear {
+
+    fill: $accent-dark !important;
+}
+
+@media screen and (min-width: 1200px) {
+    #volun {
+        fill: $text !important;
+    }
+
+    #dear {
+        fill: $accent !important;
+    }
 }
 
 aside {
-    background: url('hero.svg');
+    width: 100vw;
+    height: 400px;
+    background: url("./hero.mobile.svg");
+    background-position: top center;
     background-size: cover;
     background-repeat: no-repeat;
-    height: 100vh;
+    grid-area: aside;
+    height: 40vh;
+
+
+    @media screen and (min-width: 900px) {
+        height: 600px;
+    }
+
+    @media screen and (min-width: 900px) {}
+
+    @media screen and (min-width: 1200px) {
+        #volun {
+            fill: $text !important;
+        }
+
+        #dear {
+            fill: $accent !important;
+        }
+
+        // background-size: contain;
+        height: 100vh;
+        width: 45vw;
+    }
 }
 
 
 #cta,
 #cta-btn {
-    padding: .5em 1.5em;
     margin: 0;
-    font-size: 1.5rem;
+    font-size: 1em;
     font-family: 'Poppins', sans-serif !important;
+    border-image: none;
 }
 
 
 #cta {
-    border-color: rgba(101, 101, 101, .5) !important;
+    padding: .5em 1em;
+    border-color: rgba(101, 101, 101, .3) !important;
     outline-color: transparent !important;
+    border-bottom-left-radius: 5px;
+    ;
+    border-top-left-radius: 5px;
+    ;
+
 
 }
 
 #cta-btn {
+    padding: .5em 1.5em;
     outline-color: transparent !important;
     border-color: transparent;
     background-color: $text !important;
     color: white;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
 }
 
 form {
-    display: flex;
+
     margin-top: 60px;
+
+    .cta {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 .accent {
     color: $accent;
 
+}
+
+label {
+    font-family: 'Poppins', sans-serif !important;
+    font-weight: bold;
+    font-size: 1.5em;
+    display: inline-block;
+    margin-bottom: .35em;
 }
